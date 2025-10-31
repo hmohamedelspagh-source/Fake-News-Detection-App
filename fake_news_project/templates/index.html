@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake News Detector</title>
+  <style>
+    body {
+      background: #ede7f6;
+      font-family: Arial;
+      text-align: center;
+      padding: 50px;
+      color: #4a148c;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      border-radius: 8px;
+      border: 1px solid #4a148c;
+      padding: 10px;
+    }
+    button {
+      background: #7b1fa2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📰 Fake News Detector</h1>
+  <form action="/predict" method="post">
+    <textarea name="text" placeholder="Enter news text here..."></textarea><br>
+    <button type="submit">Predict</button>
+  </form>
+  {% if label %}
+    <div class="result">
+      Result: {{ label }} <br>
+      Probability of being fake: {{ prob }}
+    </div>
+  {% endif %}
+</body>
+</html>
